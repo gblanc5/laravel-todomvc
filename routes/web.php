@@ -11,6 +11,24 @@
 |
 */
 
+//Route::resource('taskss', 'TaskController');
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/tasks', function(){
+   return 'test '; 
+});
+
+Route::get('/tasks/{id}', function($id){
+   return 'test '.$id; 
+});
+
+Route::get('/test/{id}', function($id){
+    return view('test')->with('id', $id);
+});
+
+Route::get('/taskss/{id}', 'TaskController@show')->name('tasks.show');
+
+Route::get('/taskss', 'TaskController@index');
