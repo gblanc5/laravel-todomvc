@@ -1,4 +1,3 @@
-@extends('')
 
 @foreach($tasks as $task)
      <a href="{{ route('tasks.show', ['id' => $task['id']]) }}">With Route PHP {{ $task['id'] }}</a>

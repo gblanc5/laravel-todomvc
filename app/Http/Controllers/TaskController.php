@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Task;
+use App\Http\Requests\TaskStoreRequest;
 
 class TaskController extends Controller
 {
@@ -28,8 +30,26 @@ class TaskController extends Controller
         //return view('tasks.index')->with('tasks', Task::all());
     }
     
-    public function store ( Request $request ) {
-        $task = 
+     public function create (){
+        // directory tasks, page index
+        return view('tasks.create');
+        //return view('tasks.index')->with('tasks', Task::all());
+    }
+    
+    public function store ( TaskStoreRequest $request ) {
+        $task = new Task();
+        $task->name = $request->name;
+        $task->save();
+        return redirect(route('tasks.index'));
+        
+        //$task = Task::create($request->all());
+        
+        /*
+        $name = $request->input('name');
+        $email = $request->input('email');
+        echo "name=".$name.", email=".$email;
+        */
+       
     }
     
     
