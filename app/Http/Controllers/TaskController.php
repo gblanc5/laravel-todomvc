@@ -19,8 +19,7 @@ class TaskController extends Controller
     // defined into web.pho
 
     public function show ( $id ){
-        
-        return view('tasks.show')->with('bla', $this->tasks[$id]);
+        return view('tasks.show')->with('task', $this->tasks[$id]);
     }
 
     public function index (){
@@ -28,5 +27,10 @@ class TaskController extends Controller
         return view('tasks.index')->with('tasks', $this->tasks);
         //return view('tasks.index')->with('tasks', Task::all());
     }
+    
+    public function store ( Request $request ) {
+        $task = 
+    }
+    
     
 }

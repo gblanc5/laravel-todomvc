@@ -1,4 +1,4 @@
 
-    {{ $bla['id'] }}
-    {{ $bla['name'] }}
-    {{ $bla['duration'] }}
+    {{ $task['id'] }}
+    {{ $task['name'] }}
+    {{ $task['duration'] }}

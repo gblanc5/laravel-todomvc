@@ -11,12 +11,11 @@
 |
 */
 
-//Route::resource('taskss', 'TaskController');
+Route::resource('tasks', 'TaskController');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TaskController@index');
 
+/*
 Route::get('/tasks', function(){
    return 'test '; 
 });
@@ -32,3 +31,4 @@ Route::get('/test/{id}', function($id){
 Route::get('/taskss/{id}', 'TaskController@show')->name('tasks.show');
 
 Route::get('/taskss', 'TaskController@index');
+*/
