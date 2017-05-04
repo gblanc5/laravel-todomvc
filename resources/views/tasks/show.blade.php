@@ -1,4 +1,4 @@
 
     {{ $task['id'] }}
     {{ $task['name'] }}
-    {{ $task['duration'] }}
+    {{ $task['done'] }}

@@ -10,6 +10,7 @@ class TaskController extends Controller
 {
     private $tasks;
     
+    /*
     public function __construct(){
         $this->tasks = collect([
             ['id' => 0, 'name' => 'Empty', 'duration' => 0],
@@ -17,17 +18,22 @@ class TaskController extends Controller
             ['id' => 3, 'name' => 'Learn RubyOnRails', 'duration' => 24]
         ])->keyBy('id');
     }
-
+    */
+    
     // defined into web.pho
 
     public function show ( $id ){
-        return view('tasks.show')->with('task', $this->tasks[$id]);
+        $task = Task::find($id);
+        $task->done = 1;
+        $task->save();
+        
+        return view('tasks.show')->with('task', Task::find($id));
     }
 
     public function index (){
         // directory tasks, page index
-        return view('tasks.index')->with('tasks', $this->tasks);
-        //return view('tasks.index')->with('tasks', Task::all());
+        //return view('tasks.index')->with('tasks', $this->tasks);
+        return view('tasks.index')->with('tasks', Task::all());
     }
     
      public function create (){
